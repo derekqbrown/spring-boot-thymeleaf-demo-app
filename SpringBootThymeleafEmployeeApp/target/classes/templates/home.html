@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Leave App</title>
+<script th:if="${session.mismatch == 'True'}">
+	alert('You tried to log in as a Manager, but you have been logged in as an Employee. You must be registered as a manager to log in as a Manager');
+</script>
+</head>
+<body bgcolor='lightgray'>
+<h1 align='center'>Employee Leave App</h1>
+<br><br>
+<h2 align='center'>Home</h2>
+<br><br>
+<h3 align='center'> 
+<a href="profile">Profile</a> | 
+<a href="submit">Submit a request</a> | 
+<a href="view">View Requests</a> | 
+<a href="index">Logout</a>
+</h3>
+<br><br><br>
+
+</body>
+</html>

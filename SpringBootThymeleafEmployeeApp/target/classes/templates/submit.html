@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Leave App</title>
+
+<script type="text/javascript">
+    window.onload=function(){
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("start")[0].setAttribute('min', today);
+document.getElementsByName("end")[0].setAttribute('min', today);
+    }
+</script> 
+
+</head>
+<body bgcolor='lightgray'>
+<h1 align='center'>Employee Leave App</h1>
+<br><br>
+<h2 align='center'>Home</h2>
+<br><br>
+<h3 align='center'> 
+<a href="profile">Profile</a> | 
+<a href="submit">Submit a request</a> | 
+<a href="view">View Requests</a> | 
+<a href="index">Logout</a>
+</h3>
+<br><br><br>
+
+<div align='center'>
+<form action="submitRequest" th:object="${request}" method="post">
+<label>Reason:</label><input type="text" th:field="*{reason}" placeholder="Enter reason">
+<label>Start Date:</label><input type="date" th:field="*{start}">
+<label>End Date:</label><input type="date" th:field="*{end}">
+<input type="submit" value="Submit request">
+</form>
+</div>
+
+</body>
+</html>

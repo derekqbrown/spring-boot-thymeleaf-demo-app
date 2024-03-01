@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Leave App</title>
+</head>
+<body bgcolor='lightgray'>
+<h1 align='center'>Employee Leave App</h1>
+<br><br>
+<h2 align='center'>Login</h2>
+<h3 align='center'> 
+<a href="login">Login</a> | 
+<a href="register">Register</a>
+</h3>
+<br><br>
+<form align="center" th:action="@{loginUser}" th:object="${employee}" method="get">
+<label>Email: </label><input type="email" th:field="*{email}" placeholder="Enter email">
+<label>Password: </label><input type="password" th:field="*{password}" placeholder="Enter password">
+<label>Role: </label><select th:field="*{role}">
+	<option value="Manager">Manager</option>
+	<option value="Employee" selected="selected">Employee</option>
+</select>
+<input type="submit" value="Login">
+</form>
+<br><br><br>
+</body>
+</html>

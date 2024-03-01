@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Leave App</title>
+</head>
+<body bgcolor='lightgray'>
+<h1 align='center'>Employee Leave App</h1>
+<br><br>
+<h2 align='center'>Your Profile</h2>
+<br><br>
+<h3 align='center'> 
+<a href="profile">Profile</a> | 
+<a href="submit">Submit a request</a> | 
+<a href="view">View Requests</a> | 
+<a href="index">Logout</a>
+</h3>
+<br><br><br>
+<table border="3px" width="600" height="auto" cellpadding="20" align='center'>
+<tr>
+<td>User ID:</td><td>Name:</td>
+<td>Email:</td><td>Password:</td>
+<td>Leave remaining:</td><td>Role</td>
+
+</tr>
+<tr>
+<td th:text="${session.employee['employeeId']}"></td>
+<td th:text="${session.employee['name']}"></td>
+<td th:text="${session.employee['email']}"></td>
+<td th:text="${session.employee['password']}"></td>
+<td th:text="${session.employee['leaveDays']}"></td>
+<td th:text="${session.employee['role']}"></td>
+
+</tr>
+
+</table>
+</body>
+</html>

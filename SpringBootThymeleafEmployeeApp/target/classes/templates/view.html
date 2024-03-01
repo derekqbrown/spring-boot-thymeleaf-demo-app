@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Leave Application</title>
+
+</head>
+<body bgcolor='lightgray'>
+<h1 align='center'>Employee Leave Application</h1>
+<br><br>
+<h2 align='center'>View your requests</h2>
+<br><br>
+<h3 align='center'> 
+<a href="profile">Profile</a> | 
+<a href="submit">Submit Request</a> | 
+<a href="view">View Your Requests</a> | 
+<a href="index">Logout</a> | 
+
+<a th:text="${session.userRole == 'Manager'} AND ${session.employee['role'] == 'Manager'} ? 'Approve Requests' : ''" href="approve"></a>
+
+</h3>
+<br><br><br>
+
+<table border="3" width="600" height="100" cellpadding="5" align='center'>
+<tr>
+<td>Request ID</td><td>Employee ID</td><td>Reason</td><td>Start Date</td>
+<td>End Date</td><td>Status</td><td>Delete</td>
+</tr>
+
+<tr th:each="leaveRequest :${requestList}">
+<td th:text="*{leaveRequest.requestId}"></td>
+<td th:text="*{leaveRequest.employeeId}"></td>
+<td th:text="*{leaveRequest.reason}"></td>
+<td th:text="*{leaveRequest.start}"></td>
+<td th:text="*{leaveRequest.end}"></td>
+<td th:text="*{leaveRequest.status}"></td>
+<td><a th:href="@{deleteRequest(id=${leaveRequest.requestId})}" >Delete</a></td>
+
+</tr>
+</table>
+</body>
+</html>
